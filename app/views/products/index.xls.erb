@@ -1,0 +1,15 @@
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Price</th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= (product.date).strftime("%m/%d/%Y") %></td>
+    <td><%= product.price %></td>   
+  </tr>
+<% end %>
+</table>

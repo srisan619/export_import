@@ -1,0 +1,39 @@
+<h1>Listing products</h1>
+<p>
+  Download:
+  <%=  link_to "CSV", products_path(format: "csv")%> |
+  <%=  link_to "Excel", products_path(format: "xls")%>
+</p>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Price</th>
+   <!-- <th colspan="3">Operations</th> -->
+    
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= (product.date).strftime("%m/%d/%Y") %></td>
+    <td><%= product.price %></td>
+   <!--
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
+   -->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>
+
+
+<p>Import Products</p>
+<%= form_tag import_products_path, :mulitpart=>true do %>
+<%= file_field_tag :file %>
+<%= submit_tag 'Import'%>
+<%end%>
