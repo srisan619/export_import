@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 validates :name, :date, :price, :presence => true
 attr_accessible :name, :date, :price
+attr_accessor :brand_id
 #  def self.to_csv(options={})
 #    CSV.generate(options) do |csv|
 #        csv << column_names

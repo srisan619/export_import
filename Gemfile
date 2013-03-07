@@ -6,6 +6,8 @@ gem 'rails', '3.0.20'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'roo'
 gem 'pg'
+gem 'rails3-jquery-autocomplete'
+gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
+  autocomplete :brand, :name
+  
   def index
     @products = Product.order(:name)
 
