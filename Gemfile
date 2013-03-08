@@ -8,7 +8,7 @@ gem 'roo'
 gem 'pg'
 gem 'rails3-jquery-autocomplete'
 gem 'jquery-rails'
-
+gem "paperclip", :git => "http://github.com/thoughtbot/paperclip.git"
 # Use unicorn as the web server
 # gem 'unicorn'
 

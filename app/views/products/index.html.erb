@@ -4,11 +4,11 @@
   <%=  link_to "CSV", products_path(format: "csv")%> |
   <%=  link_to "Excel", products_path(format: "xls")%>
 </p>
-<table border="1">
+<table class="pretty">
   <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Price</th>
+    <th><%= sortable 'name' %></th>
+    <th><%= sortable 'date' %></th>
+    <th><%= sortable 'price' %></th>
     <th>Operation</th>
     
   </tr>
@@ -18,11 +18,8 @@
     <td><%= product.name %></td>
     <td><%= (product.date).strftime("%m/%d/%Y") %></td>
     <td><%= product.price %></td>
-   <!--
-    <td><%= link_to 'Show', product %></td>
-   -->
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-   
+ <!--   <td><%= link_to 'Show', product %></td> -->
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>   
     <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
    
   </tr>
@@ -31,9 +28,9 @@
 
 <br />
 
+<%= will_paginate @products %>
+<br />
 <%= link_to 'New Product', new_product_path %>
-
-
 
 <h2>Import Products</h2>
 

@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
+helper_method :sort_column,:sort_direction
   autocomplete :brand, :name
   
   def index
-    @products = Product.order(:name)
+    @products = Product.paginate :per_page => 5, :page =>params[:page],:order=> (sort_column + " " + sort_direction)
+#    @products = Product.order(params[:sort])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,8 +51,9 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.xml
   def create
+#    raise params[:product].inspect
     @product = Product.new(params[:product])
-
+raise @product.inspect
     respond_to do |format|
       if @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
@@ -78,6 +81,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  
+
+  def sort_column
+    Product.column_names.include?(params[:sort]) ? params[:sort] : "name"    
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
   # DELETE /products/1
   # DELETE /products/1.xml
   def destroy
@@ -89,4 +102,7 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end
+
+
