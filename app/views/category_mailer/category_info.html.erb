@@ -1,0 +1,7 @@
+Dear One,
+<p>Kindly check your category informations,</p>
+<p>Category Name: <b><%= @category.name%></b>,</p>
+<p>Category Type: <b><%= @category.category_type%></b>,</p>
+<p>Category No: <b><%= @category.category_number%></b>,</p>
+<br/>
+<p>Edit Category: <%= link_to 'Edit Category' , edit_category_url(@category) %> </p>
