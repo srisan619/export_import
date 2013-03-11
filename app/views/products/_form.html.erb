@@ -13,20 +13,26 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.autocomplete_field :name , autocomplete_brand_name_products_path%>
+    <%= f.autocomplete_field :name , autocomplete_brand_name_products_path , :placeholder => "Enter the product name"%>
   </div>
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.text_field :date %>
   </div>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.text_field :price  , :placeholder => "Type Product price in Rupees" %>
   </div>
-<div class="field">
-  <%=  f.file_field :photo%>
-</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<!--
+<script>
+  $(function() {
+    $('#date').datepicker();
+});
+</script>
+-->

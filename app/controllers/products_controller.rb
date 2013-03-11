@@ -51,11 +51,11 @@ helper_method :sort_column,:sort_direction
   # POST /products
   # POST /products.xml
   def create
-#    raise params[:product].inspect
+#    raise params[:product][:photo].inspect
     @product = Product.new(params[:product])
-raise @product.inspect
     respond_to do |format|
       if @product.save
+        status = @product.update_attributes(:photo_file_name=>params[:product][:photo].original_filename ,:photo_content_type=>params[:product][:photo].content_type)        
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
         format.xml  { render :xml => @product, :status => :created, :location => @product }
       else

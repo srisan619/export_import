@@ -9,6 +9,10 @@ gem 'pg'
 gem 'rails3-jquery-autocomplete'
 gem 'jquery-rails'
 gem "paperclip", :git => "http://github.com/thoughtbot/paperclip.git"
+gem 'meta_search'
+gem 'ui_datepicker-rails3'
+gem 'jquery_datepicker'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  
+belongs_to :category
+
 validates :name, :date, :price, :presence => true
 attr_accessible :name, :date, :price
 attr_accessor :brand_id

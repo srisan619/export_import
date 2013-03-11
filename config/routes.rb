@@ -1,4 +1,6 @@
 ExportImport::Application.routes.draw do
+  resources :categories
+
   root :to => "products#index"
   resources :products do
   collection { post :import }
