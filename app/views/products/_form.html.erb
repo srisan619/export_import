@@ -12,18 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %> :
     <%= f.autocomplete_field :name , autocomplete_brand_name_products_path , :placeholder => "Enter the product name"%>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.text_field :date %>
-  </div>
+    <%= f.label :date %> :
+    <%=f.text_field :date, :id=>'demo1',:size=>15 %>
+    <a href="javascript:NewCal('demo1','ddmmyyyy')">
+      <img src="/images/calendar.gif" width="16" height="16" border="0" alt="Pick a date">
+    </a>
+  </div><br />
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label :price %> :
     <%= f.text_field :price  , :placeholder => "Type Product price in Rupees" %>
   </div>
-
+<br />
   <div class="actions">
     <%= f.submit %>
   </div>

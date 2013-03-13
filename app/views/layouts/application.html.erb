@@ -3,12 +3,23 @@
   <head>
     <title><%= yield(:title) || "Srinivasan" %></title>
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application.js" %>
+    <%= javascript_include_tag "datetimepicker.js"  %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
     <div id="container">
+    <div id="header">
+      <div id="menu">
+        <ul>
+          <li style="float:left"><%= link_to "Home" , root_url %></li>
+          <li style="float:left"><%#= link_to 'About Us' , product_about_url %><a href="products/" class="menu">About Us</a></li>
+          <li style="float:left"><a href="#" class="menu">Contact </a></li>
+        </ul>
+      </div>
+<br/><br/>
+    </div>
+      <br/>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>

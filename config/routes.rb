@@ -3,8 +3,9 @@ ExportImport::Application.routes.draw do
 
   root :to => "products#index"
   resources :products do
+#  post :about
   collection { post :import }
-  get :autocomplete_brand_name, :on => :collection
+  get :autocomplete_brand_name, :on => :collection  
 end
 
   # The priority is based upon order of creation:

@@ -3,9 +3,9 @@
 
 //= require jquery-ui
 
-$(function() {
-    $("#date").datepicker();
-});
+//$(function() {
+//    $("#date").datepicker();
+//});
 
 //
 //$(document).ready(function(ev) {

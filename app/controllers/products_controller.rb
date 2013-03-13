@@ -103,6 +103,10 @@ helper_method :sort_column,:sort_direction
     end
   end
 
+  def about
+    raise params.inspect
+  end
+
 end
 
 
