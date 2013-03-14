@@ -3,7 +3,11 @@ class ProductsController < ApplicationController
   # GET /products.xml
 helper_method :sort_column,:sort_direction
   autocomplete :brand, :name
-  
+
+  def home
+    
+  end
+
   def index
     @products = Product.paginate :per_page => 5, :page =>params[:page],:order=> (sort_column + " " + sort_direction)
 #    @products = Product.order(params[:sort])
@@ -104,7 +108,11 @@ helper_method :sort_column,:sort_direction
   end
 
   def about
-    raise params.inspect
+    
+  end
+
+  def contact
+    
   end
 
 end

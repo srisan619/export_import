@@ -1,0 +1,43 @@
+<p><em style="line-height: 1.3em;"><img src="images/sumeru.png" border="0" width="650" height="300" /></em></p>
+
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>jQuery UI Tabs - Default functionality</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+$(function() {
+$( "#tabs" ).tabs();
+});
+</script>
+</head>
+<body>
+<div id="tabs">
+<ul>
+<li><a href="#tabs-1">Microsoft Gold Partners</a></li>
+<li><a href="#tabs-2">Sumeru & Client</a></li>
+<li><a href="#tabs-3">Quality</a></li>
+</ul>
+<div id="tabs-1">
+<p>Sumeru became the second company in India to achieve Microsoft Gold Certification (under the new Gold Certification norms of Microsoft) on Web Development competency on 17 December,2010.</p>
+</div>
+<div id="tabs-2">
+<p>Sumeru sees its customers as business partners. This enables us to adopt a win-win attitude and work toward building long-term relationships, thus providing our customers with consistent, high quality and reliable services.</p>
+</div>
+<div id="tabs-3">
+<p>Use of industry standards and best practices like ISO 27001, SSE-CMM,etc.
+Checkpoints at major milestones ensure that we are improving, and driving toward even better performance over the course of our relationship.
+Final review with management to ensure quality and satisfaction.</p>
+</div>
+</div>
+</body>
+</html>
+
+<br/>
+<div>
+  <%= link_to (image_tag("/images/fb.png")) , 'http://www.facebook.com/srinivasan.irulappan'  ,:target => '_blank' %> | <%= link_to (image_tag("/images/twt.png")), 'https://twitter.com/srisan619' ,:target => '_blank'%>
+  Email us at: <a href="mailto:info@sumerusolutions.com?Subject=Hello%20again">info@sumerusolutions.com</a>
+</div>

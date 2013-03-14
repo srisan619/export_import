@@ -1,9 +1,10 @@
 ExportImport::Application.routes.draw do
   resources :categories
 
-  root :to => "products#index"
+  root :to => "products#home"
   resources :products do
-#  post :about
+  get :about, :on => :collection
+  get :contact, :on => :collection
   collection { post :import }
   get :autocomplete_brand_name, :on => :collection  
 end

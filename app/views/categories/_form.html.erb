@@ -10,29 +10,41 @@
       </ul>
     </div>
   <% end %>
-
+<table border="0">
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <tr>
+      <td><%= f.label :name %> </td>
+    <td><%= f.text_field :name %></td>
+      </tr>
   </div>
   <div class="field">
-    <%= f.label :category_type %><br />
-    <%= f.text_field :category_type %>
+    <tr>
+    <td><%= f.label :category_type %> </td>
+    <td><%= f.text_field :category_type %></td>
+    </tr>
   </div>
 
   <div class="field">
-    <%= f.label :category_number %><br />
-    <%= f.text_field :category_number %>
+    <tr>
+      <td><%= f.label :category_number %> </td>
+    <td> <%= f.text_field :category_number %></td>
+    </tr>
   </div>
 
 <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <tr>
+    <td> <%= f.label :email %> </td>
+    <td> <%= f.text_field :email %></td>
+  </tr>
   </div>
 
   <div class="field">
-  <%=  f.file_field :photo%>
+    <tr>
+       <td> <%= f.label :photo %> </td>
+      <td>  <%=  f.file_field :photo%></td>
   </div>
+  </tr>
+  </table>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -8,16 +8,18 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
+    <div id="container">      
     <div id="header">
       <div id="menu">
         <ul>
-          <li style="float:left"><%= link_to "Home" , root_url %></li>
-          <li style="float:left"><%#= link_to 'About Us' , product_about_url %><a href="products/" class="menu">About Us</a></li>
-          <li style="float:left"><a href="#" class="menu">Contact </a></li>
+        <%= link_to "Home" , root_url %> &nbsp; | &nbsp;
+          <%= link_to 'About Us' , about_products_path %> &nbsp; | &nbsp;
+          <%= link_to 'Contact' , contact_products_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <%= link_to 'Category' ,  categories_path %> &nbsp; | &nbsp;
+          <%= link_to 'Product', products_path %>
         </ul>
       </div>
-<br/><br/>
+<br/>
     </div>
       <br/>
       <% flash.each do |name, msg| %>
