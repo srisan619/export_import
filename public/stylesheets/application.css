@@ -101,6 +101,20 @@ table.pretty {
   background-image: url(/images/down_arrow.gif);
 }
 
+#clock_a{
+float:right;
+padding:15px 0 0 0;
+}
+.jclock{
+color:#FFFFFF;
+float:right;
+font-size:22px;
+font-weight:bold;
+padding:34px 25px 0 0;
+}
+
+
+
 /*---------------- menu----------------------*/
 .menu {font-size:11px;padding:0px 10px 0 10px; float:left; width:880px;}
 

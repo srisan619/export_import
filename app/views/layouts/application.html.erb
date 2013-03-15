@@ -4,6 +4,8 @@
     <title><%= yield(:title) || "Srinivasan" %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "datetimepicker.js"  %>
+	
+
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
@@ -12,11 +14,13 @@
     <div id="header">
       <div id="menu">
         <ul>
+	   
         <%= link_to "Home" , root_url %> &nbsp; | &nbsp;
           <%= link_to 'About Us' , about_products_path %> &nbsp; | &nbsp;
-          <%= link_to 'Contact' , contact_products_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <%= link_to 'Contact' , contact_products_path %> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           <%= link_to 'Category' ,  categories_path %> &nbsp; | &nbsp;
-          <%= link_to 'Product', products_path %>
+          <%= link_to 'Product', products_path %> &nbsp; | &nbsp;
+          <%= link_to 'Ticket Booking', bus_search_products_path %>
         </ul>
       </div>
 <br/>

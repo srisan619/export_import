@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311114328) do
+ActiveRecord::Schema.define(:version => 20130315100931) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20130311114328) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "ticket_bookings", :force => true do |t|
+    t.string   "from"
+    t.string   "to"
+    t.datetime "onward"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

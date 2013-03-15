@@ -115,6 +115,10 @@ helper_method :sort_column,:sort_direction
     
   end
 
+  def bus_search
+#  raise params.inspect
+  end
+
 end
 
 

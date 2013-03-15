@@ -5,6 +5,7 @@ ExportImport::Application.routes.draw do
   resources :products do
   get :about, :on => :collection
   get :contact, :on => :collection
+  get :bus_search, :on => :collection
   collection { post :import }
   get :autocomplete_brand_name, :on => :collection  
 end
