@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   
 belongs_to :category
+belongs_to :city
 
 validates :name, :date, :price, :presence => true
 attr_accessible :name, :date, :price

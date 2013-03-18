@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315100931) do
+ActiveRecord::Schema.define(:version => 20130318101626) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(:version => 20130315100931) do
     t.string   "email"
   end
 
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.string   "state"
+    t.string   "status",     :default => "t"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.datetime "date"
@@ -50,6 +58,10 @@ ActiveRecord::Schema.define(:version => 20130315100931) do
     t.datetime "onward"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "fare"
+    t.string   "route"
+    t.string   "status",     :default => "t"
+    t.integer  "seat_no"
   end
 
 end

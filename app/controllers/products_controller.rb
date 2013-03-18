@@ -117,6 +117,7 @@ helper_method :sort_column,:sort_direction
 
   def bus_search
 #  raise params.inspect
+ @city = City.active
   end
 
 end

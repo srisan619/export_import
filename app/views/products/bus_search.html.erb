@@ -2,18 +2,21 @@
 <fieldset style="width: 450px">
   <legend>Online Booking</legend>
   <div align="left">
-<%=  form_tag bus_search_products_path ,:remote => true do %>
+<%=  form_tag bus_search_products_path,  :remote => true  do %>
  <%#=  form_tag   :url => {:action => 'bus_search'}, :remote => true, :method => :get do %>
 <%=  label_tag :from%>
-<%= text_field_tag :from , nil, :size=>13,:placeholder => 'starting point' %>
+<%#= text_field_tag :from , nil, :size=>13,:placeholder => 'starting point' %>    
+ <%#= collection_select :city_id, City.all, 'id', 'name', options={:prompt => 'Select'},{:class => 'size45',:tabindex => "14"} %>
+<%= select_tag(:city_from_id , options_from_collection_for_select(@city,'id','name')) %>
 <%= label_tag :to%>
-<%= text_field_tag :to , nil, :size=>13, :placeholder => 'destination point'%>
+<%#= text_field_tag :to , nil, :size=>13, :placeholder => 'destination point'%>
+ <%= select_tag "city_to_id",options_from_collection_for_select(@city, 'id','name') ,{:prompt => "--select county--"}%>
 <%end%>
 </div>
   <br/>
   <div align="left">
 <%= label_tag :onward %>
-    <%=  text_field_tag :onward, nil ,:size=>13 %>
+    <%=  text_field_tag :onward, nil ,:size=>13, :value => Date.today %>
     <a href="javascript:NewCal('onward','ddmmyyyy')">
       <img src="/images/calendar.gif" width="16" height="16" border="0" alt="Pick a date">
     </a>
@@ -31,13 +34,24 @@
   No. of Passengers : <%= select_tag "passenger", "<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>".html_safe %>
 </div>
   <br/>
-  <div align="center" id="search_ticket">
-    <%= submit_tag "Search services" %>
+  <div align="center">
+    <%=submit_tag 'Search services' , :id=>'search_bus_services' %>
+    <span id="shift_loader1" style="display: none;" valign="top" align="right"><img src="/images/ajax-loader2.gif" alt="ajax_loader.gif"/></span>
   </div>
-  
+<div id='add_list' ></div>   
   </fieldset>
 
 
-<script>
-  
+
+
+<script type="text/javascript">
+  $(document).ready( function(){  
+    $('#search_bus_services').click(function(){
+   // $('search_bus_services').observe('click',function(event){
+      var pars = "from="+$("#city_from_id").val()+"&to="+$("#city_to_id").val();
+      //ajax_loader('add_list', '/products/view_bus_services', pars, 'shift_loader1');
+      ajax_loader('add_list', '/products/view_bus_services', pars, 'shift_loader1')
+    });
+  });
+
 </script>
