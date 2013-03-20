@@ -43,15 +43,30 @@
 
 
 
-
+<!--
 <script type="text/javascript">
   $(document).ready( function(){  
     $('#search_bus_services').click(function(){
    // $('search_bus_services').observe('click',function(event){
-      var pars = "from="+$("#city_from_id").val()+"&to="+$("#city_to_id").val();
+      var pars = "from="+$("#city_from_id option:selected").text()+"&to="+$("#city_to_id option:selected").text();      
       //ajax_loader('add_list', '/products/view_bus_services', pars, 'shift_loader1');
-      ajax_loader('add_list', '/products/view_bus_services', pars, 'shift_loader1')
+      ajax_loader('add_list', 'view_bus_services', pars)
+     
     });
   });
+
+</script>
+-->
+
+<script>
+	 $('search_bus_services').observe('click', function(event)
+	 {           
+                        //var pars = "from="+$("#city_from_id option:selected").text()+"&to="+$("#city_to_id option:selected").text();
+			var pars = "from="+$F("city_from_id")+"&to="+$F("city_to_id");
+                        alert($F("city_from_id"));
+			ajax_loader('add_list', 'view_bus_services', pars, 'shift_loader1');
+		
+	 });
+
 
 </script>
