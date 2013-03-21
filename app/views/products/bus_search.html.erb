@@ -1,4 +1,5 @@
-
+<%= link_to "Booking Master", ticket_booking_master_products_path  %>
+<br/><br/>
 <fieldset style="width: 450px">
   <legend>Online Booking</legend>
   <div align="left">
@@ -7,10 +8,10 @@
 <%=  label_tag :from%>
 <%#= text_field_tag :from , nil, :size=>13,:placeholder => 'starting point' %>    
  <%#= collection_select :city_id, City.all, 'id', 'name', options={:prompt => 'Select'},{:class => 'size45',:tabindex => "14"} %>
-<%= select_tag(:city_from_id , options_from_collection_for_select(@city,'id','name')) %>
+<%= select_tag(:city_from_id , options_from_collection_for_select(@city,'id','name'), {:include_blank => 'Departure' }) %>
 <%= label_tag :to%>
 <%#= text_field_tag :to , nil, :size=>13, :placeholder => 'destination point'%>
- <%= select_tag "city_to_id",options_from_collection_for_select(@city, 'id','name') ,{:prompt => "--select county--"}%>
+ <%= select_tag "city_to_id",options_from_collection_for_select(@city, 'id','name') , {:include_blank => 'Destination' }%>
 <%end%>
 </div>
   <br/>
@@ -38,10 +39,10 @@
     <%=submit_tag 'Search services' , :id=>'search_bus_services' %>
     <span id="shift_loader1" style="display: none;" valign="top" align="right"><img src="/images/ajax-loader2.gif" alt="ajax_loader.gif"/></span>
   </div>
-<div id='add_list' ></div>   
+
   </fieldset>
 
-
+<div id='add_list' ></div>   
 
 <!--
 <script type="text/javascript">
@@ -62,9 +63,16 @@
 	 $('search_bus_services').observe('click', function(event)
 	 {           
                         //var pars = "from="+$("#city_from_id option:selected").text()+"&to="+$("#city_to_id option:selected").text();
-			var pars = "from="+$F("city_from_id")+"&to="+$F("city_to_id");
-                        alert($F("city_from_id"));
-			ajax_loader('add_list', 'view_bus_services', pars, 'shift_loader1');
+			//var pars = "from="+$F("city_from_id")+"&to="+$F("city_to_id");
+                        if ((document.getElementById("city_from_id").options[document.getElementById("city_from_id").selectedIndex].text) != "Departure" && (document.getElementById("city_from_id").options[document.getElementById("city_from_id").selectedIndex].text) != "Destination")
+                          {
+                        var pars = "from="+(document.getElementById("city_from_id").options[document.getElementById("city_from_id").selectedIndex].text)+"&to="+(document.getElementById("city_to_id").options[document.getElementById("city_to_id").selectedIndex].text)+"&onward="+($F("onward")+"&passenger="+(document.getElementById("passenger").options[document.getElementById("passenger").selectedIndex].text));
+                        ajax_loader('add_list', 'view_bus_services', pars, 'shift_loader1');
+                          }
+                       else
+                         {
+                           alert("Select Departure and Destination...");
+                         }
 		
 	 });
 
