@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   
 belongs_to :category
 belongs_to :city
+has_many :carts
 
 validates :name, :date, :price, :presence => true
 attr_accessible :name, :date, :price
@@ -44,5 +45,34 @@ has_attached_file :photo
   else raise "Unknown file type: #{file.original_filename}"
   end
 end
+
+
+  def paypal_url(return_url)
+    values = {
+      :business => 'srisan619-facilitator@gmail.com',
+      :cmd => '_cart',
+      :upload => 1,
+      :return => return_url,
+      :invoice => id
+    }
+
+
+    [self].each_with_index do |item, index|
+      values.merge!({
+        "amount_#{index+1}" => item.price,
+        "item_name_#{index+1}" => item.name,
+        "item_number_#{index+1}" => item.id,
+        "quantity_#{index+1}" => 1
+      })
+    end
+
+#    values.merge!({
+#        "price_#{index+1}" => self.price,
+#        "name_#{index+1}" => self.name,
+#        "item_number_#{index+1}" => self.id
+#      })
+
+    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+  end
 
 end

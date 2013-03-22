@@ -20,7 +20,8 @@
     <td><%= (product.date).strftime("%m/%d/%Y") %></td>
     <td><%= product.price %></td>
  <!--   <td><%= link_to 'Show', product %></td> -->
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>   
+    <td><%= link_to 'Add to Cart', cart_path(product) %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
     <td><%= button_to "Delete",product, :method=>:delete, :class=>:destroy %>
     <%#= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
    

@@ -1,0 +1,28 @@
+Shopping Cart
+
+<table id="line_items">
+  <tr>
+    <th>Product</th>
+    <th>Qty</th>
+    <th class="price">Unit Price</th>
+    <th class="price">Full Price</th>
+  </tr>
+  <%line_item = Product.find(params[:id])%>
+    <tr class="<%= cycle :odd, :even %>">
+      <td><%=  line_item.name %></td>
+      <td class="qty">1<%#= line_item.quantity %></td>
+      <td class="price"><%= number_to_currency(line_item.price) %></td>
+      <td class="price"><%= number_to_currency(line_item.price) %></td>
+    </tr>
+  
+  <tr>
+    <td class="total price" colspan="4">
+      Total: <%= number_to_currency line_item.price %>
+    </td>
+  </tr>
+</table>
+
+<p>
+  <%#= link_to "Continue Shopping", products_url %> |
+  <%= link_to "Checkout", line_item.paypal_url(products_url) %>
+</p>

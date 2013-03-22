@@ -1,5 +1,7 @@
 ExportImport::Application.routes.draw do
-  resources :categories, :cities
+#  get "cart/show"
+
+  resources :categories, :cities, :carts
 
   root :to => "products#home"
   resources :products do
