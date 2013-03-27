@@ -10,6 +10,10 @@ ExportImport::Application.routes.draw do
   get :bus_search, :on => :collection
   get :view_bus_services, :on => :collection
   get :ticket_booking_master, :on => :collection
+  post :create_ticket_booking_master, :on => :collection
+  get :create_ticket_booking_master, :on => :collection
+  get :city_master, :on => :collection
+  post :create_city_master, :on => :collection
   collection { post :import }
   get :autocomplete_brand_name, :on => :collection  
 end

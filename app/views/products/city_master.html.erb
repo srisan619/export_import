@@ -1,0 +1,11 @@
+<%= form_tag create_city_master_products_path, :remote=>true do |f|%>
+<fieldset>
+            <legend><b>City Master</b></legend>
+<table align="center">
+  <tr>
+    <td>City Name</td> <td><%= text_field_tag :name %></td></tr><br />
+<tr><td>State </td> <td><%= text_field_tag :state %></td></tr><br />
+<tr><td><%= submit_tag 'Create'%></td></tr>
+</table>
+            </fieldset>
+<%end%>

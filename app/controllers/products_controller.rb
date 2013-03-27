@@ -121,8 +121,41 @@ helper_method :sort_column,:sort_direction
  @city = City.active
   end
 
-  def ticket_booking_master
+  def ticket_booking_master    
+#    @ticket_booking = TicketBooking.new
+    @city = City.all
+  end
+
+  def create_ticket_booking_master
+#    raise params.inspect
+    city_from = City.find(params[:city_from_id]).name
+    city_to = City.find(params[:city_to_id]).name
+    status = TicketBooking.new(:from=>city_from , :to =>city_to ,:onward=>params[:onward], :fare=>params[:fare],  :route=>params[:route], :seat_no=>params[:seat_no])
+   
+    if status.save
+      flash[:notice] = "Ticket Booking Master was created Succesfully.."
+      redirect_to :action => 'bus_search'
+    else
+      flash[:notice] = "Ticket Booking Master was not created !!!"
+      redirect_to :ticket_booking_master
+    end
+#    render :layout => false
+  end
+
+  def city_master
     
+  end
+
+  def create_city_master
+#    raise params.inspect
+    status = City.new(:name=>params[:name], :state=> params[:state])
+    if status.save
+      flash[:notice] = "City was created Succesfully.."
+      redirect_to :action => 'bus_search'
+    else
+      flash[:notice] = "City was not created !!!"
+      redirect_to :ticket_booking_master
+    end
   end
 
 end

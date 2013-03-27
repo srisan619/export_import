@@ -1,3 +1,75 @@
-<%=form_for @ticket_booking do |f| %>
-hiii
+<%= form_tag  create_ticket_booking_master_products_path , :remote => true do%>
+<fieldset>
+            <legend><b>Ticket Booking Master</b></legend>
+
+<table align='center'>
+<tr>
+                    <%#= f.sr_collection_select :from, @city, 'id', 'name',{:label => 'From',:prompt => "--Select--",:mandatory => true} %>
+  <td>Starting From</td>
+  <td><%= select_tag(:city_from_id , options_from_collection_for_select(@city,'id','name'), {:include_blank => 'Departure' }) %></td>
+  
+    <td>End Point</td>
+    <td><%= select_tag "city_to_id", options_from_collection_for_select(@city, 'id','name') , {:include_blank => 'Destination' }%></td>
+</tr>
+<tr>
+  <td>Onwards</td>
+  <td><%=  text_field_tag :onward, nil ,:size=>13, :value => Date.today %>
+    <a href="javascript:NewCal('onward','ddmmyyyy')">
+      <img src="/images/calendar.gif" width="16" height="16" border="0" alt="Pick a date">
+    </a></td>
+</tr>
+<tr>
+<td>Fare</td>
+  <td><%=  text_field_tag :fare, nil ,:size=>13, :placeholder => '*seasonal price' %></td>
+</tr>
+<tr>
+<td>Route</td>
+  <td><%=  text_field_tag :route, nil ,:size=>13, :placeholder => 'Enter the bus route' %></td>
+</tr>
+<tr>
+<td>Total Seats</td>
+  <td> <%#= f.select :seat_no , (0..40) %>
+  <%= select_tag :seat_no , options_for_select(1..40) %>
+  </td>
+</tr>
+<tr></tr>
+<tr>
+  <td colspan="2">
+    <div  align="right">
+            <%#= f.submit_tag 'Submit', {:name => 'operation', :type => 'submit', :class => 'buttons', :id => 'submit_button_id'} %>
+            <%= submit_tag 'Create' , :id=>'create_new_booking' %>
+            <span id="shift_loader1" style="display: none;" valign="top" align="right"><img src="/images/ajax-loader2.gif" alt="ajax_loader.gif"/></span>
+        </div>
+    </td>
+</tr>
+<tr align="left">
+  <td>
+  <%= link_to 'Back to Online Booking' , bus_search_products_path %></td>
+</tr>
+<div id="create_ticket"></div>
+</table>
+</fieldset>
 <%end%>
+
+<!--
+<script>
+	 $('create_new_booking').observe('click', function(event)
+	 {
+                        //var pars = "from="+$("#city_from_id option:selected").text()+"&to="+$("#city_to_id option:selected").text();
+			//var pars = "from="+$F("city_from_id")+"&to="+$F("city_to_id");
+                        if ((document.getElementById("city_from_id").options[document.getElementById("city_from_id").selectedIndex].text) != "Departure" && (document.getElementById("city_from_id").options[document.getElementById("city_from_id").selectedIndex].text) != "Destination")
+                          {
+                        var pars = "from="+(document.getElementById("city_from_id").options[document.getElementById("city_from_id").selectedIndex].text)+"&to="+(document.getElementById("city_to_id").options[document.getElementById("city_to_id").selectedIndex].text);                        
+                        ajax_loader('create_ticket', 'create_ticket_booking_master', pars, 'shift_loader1');
+                          }
+                       else
+                         {
+                           alert("Select Departure and Destination...");
+                         }
+
+	 });
+
+
+</script>
+
+         -->
